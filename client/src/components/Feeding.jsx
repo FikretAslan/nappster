@@ -14,16 +14,32 @@ export default function Feeding({ feeds, setFeeds }) {
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.type]: event.target.value });
+    // if event.target.feed1
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        name="feedtype"
-        type="text"
-        placeholder="Breastfeed or bottle?"
-        onChange={handleChange}
-      />
+      <label htmlFor="feed1">
+        Breastfed
+        <input
+          name="feed1"
+          type="checkbox"
+          value="Breastfed"
+          onChange={handleChange}
+          id="feed1"
+        />
+      </label>
+      <label htmlFor="feed2">
+        Bottle
+        <input
+          name="feed2"
+          type="checkbox"
+          value="Bottle"
+          onChange={handleChange}
+          id="feed2"
+        />
+      </label>
+      {/* conditional render feed1 && <input left or right>*/}
       <input
         name="start"
         type="datetime-local"
