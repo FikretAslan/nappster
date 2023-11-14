@@ -9,20 +9,26 @@ export default function Home() {
     <>
       <div className="FeedNapSleep" />
 
-      <div class="column1">
+      <div className="column1">
         {" "}
-        <h3>Feeding</h3>
+        <Link to="/feeding">
+          <h3>Feeding</h3>
+        </Link>
         <img src="https://placehold.co/100x100" alt="bottlepic" />
       </div>
 
-      <div class="column2">
+      <div className="column2">
         {" "}
-        <h3>Nappies</h3>
+        <Link to="/nappies">
+          <h3>Nappies</h3>
+        </Link>
         <img src="https://placehold.co/100x100" alt="nappy" />
       </div>
 
-      <div class="column3">
-        <h3>Sleep</h3>
+      <div className="column3">
+        <Link to="/sleep">
+          <h3>Sleep</h3>
+        </Link>
         <img src="https://placehold.co/100x100" alt="sleepimg" />
       </div>
 
