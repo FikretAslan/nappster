@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default function Feeding({ feeds, setFeeds }) {
   const [formData, setFormData] = useState({});
-
+  const [data, setData] = useState({});
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -12,22 +12,32 @@ export default function Feeding({ feeds, setFeeds }) {
     setFeeds([...feeds, axiosRes.data]);
   }
 
-  function handleChange(event) {
-    setFormData({ ...formData, [event.target.type]: event.target.value });
-    // if event.target.feed1
+  function handleChange(e) {
+    const { name, type } = e.target;
+    let newForm = {
+      ...formData,
+      [name]: e.target[type === "checkbox" ? "checked" : "value"],
+    };
+
+    setFormData(newForm);
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="feed1">
         Breastfed
-        <input
-          name="feed1"
-          type="checkbox"
-          value="Breastfed"
-          onChange={handleChange}
-          id="feed1"
-        />
+        <input type="checkbox" onChange={handleChange} name="status" />
+        {formData.status && (
+          // if checkbox
+          <div>
+            <label>
+              <input type="checkbox" />
+              Left
+              <input type="checkbox" />
+              Right
+            </label>
+          </div>
+        )}
       </label>
       <label htmlFor="feed2">
         Bottle
