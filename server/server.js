@@ -1,11 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const PORT = process.env.PORT || 8080;
+const mongoose = require("mongoose");
+const Feeds = require("./models/Feed.js");
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// add your endpoints here
+const PORT = 8080;
+mongoose.connect(process.env.MONGO_URL);
+
+app.get("/feeding", async (req, res) => {
+  const feeds = await Feeds.find(req.query);
+
+  res.json(feeds);
+  console.log(feeds);
+});
 
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));
