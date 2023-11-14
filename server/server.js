@@ -18,4 +18,9 @@ app.get("/feeding", async (req, res) => {
   console.log(feeds);
 });
 
+app.post("/feeding", async (req, res) => {
+  const newFeed = await Feeds.create(req.body);
+  res.json(newFeed);
+});
+
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));
