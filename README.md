@@ -1,6 +1,6 @@
 # Nappster
 
-Created by Fikret, Dom & Erhan.
+Created by Fikret & Dom.
 
 # Problem Domain
 
