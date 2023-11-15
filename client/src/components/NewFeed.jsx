@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function NewFeed({ feeds, setFeeds }) {
-  const [formData, setFormData] = useState({});
+export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
+  const [formData, setFormData] = useState(
+    feed ?? {
+      name: "",
+      todayDate: {},
+      startTime: {},
+      endTime: {},
+    }
+  );
+
   const [data, setData] = useState({});
 
   async function handleSubmit(event) {
@@ -53,13 +61,19 @@ export default function NewFeed({ feeds, setFeeds }) {
         </label>
         {/* conditional render feed1 && <input left or right>*/}
         <input
-          name="start"
-          type="datetime-local"
+          name="todayDate"
+          type="date"
+          placeholder="Day of feed"
+          onChange={handleChange}
+        />
+        <input
+          name="startTime"
+          type="time"
           placeholder="Start of feed"
           onChange={handleChange}
         />
         <input
-          name="feedtype"
+          name="endTime"
           type="time"
           placeholder="End of feed"
           onChange={handleChange}

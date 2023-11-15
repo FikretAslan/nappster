@@ -1,3 +1,6 @@
+import React from "react";
+import Stopwatch from "./Stopwatch";
+
 export default function Sleep() {
   return (
     <>
@@ -6,12 +9,7 @@ export default function Sleep() {
         Track your baby's sleep and see patterns emerging from their sleeping
         schedules!
       </p>
-      <button>Start</button>
-      <h3>00:00:00</h3>
-
-      <button>Stop</button>
-
-      <button>Reset</button>
+      <Stopwatch />
     </>
   );
 }
