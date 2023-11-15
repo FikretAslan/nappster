@@ -36,19 +36,6 @@ function App() {
             Nappster
           </Link>
         </h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/feeding">Feeding</Link>
-            </li>
-            <li>
-              <Link to="/nappies">Nappies</Link>
-            </li>
-            <li>
-              <Link to="/sleep">Sleep</Link>
-            </li>
-          </ul>
-        </nav>
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
