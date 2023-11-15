@@ -15,12 +15,27 @@ app.get("/feeding", async (req, res) => {
   const feeds = await Feeds.find(req.query);
 
   res.json(feeds);
-  console.log(feeds);
 });
 
 app.post("/feeding", async (req, res) => {
   const newFeed = await Feeds.create(req.body);
   res.json(newFeed);
+});
+
+app.delete("/feeding/:id", async (req, res) => {
+  console.log("something");
+  try {
+    console.log(req.params);
+    const deleteFeed = await Feeds.findByIdAndDelete(req.params.id);
+    res.json(deleteFeed);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.put("/feeding/:id", async (req, res) => {
+  const updatedFeed = await Feeds.findByIdAndUpdate(req.params.id, req.body);
+  res.json(updatedFeed);
 });
 
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));

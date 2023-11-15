@@ -4,9 +4,8 @@ const { Schema } = mongoose;
 
 const feedSchema = new Schema({
   name: String,
-  todayDate: Number,
-  startTime: Number,
-  endTime: Number,
+  startTime: Date,
+  endTime: Date,
 });
 
 const Feeds = mongoose.model("Feed", feedSchema);

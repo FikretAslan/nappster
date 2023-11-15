@@ -8,16 +8,20 @@ async function seed() {
   await Feed.create([
     {
       name: "Breastfed",
-      todayDate: 15 - 11 - 23,
+      todayDate: "23-15-11",
       startTime: 0 - 0 - 0,
       endTime: 1 - 0 - 0,
     },
 
     {
       name: "Bottlefed",
-      todayDate: 16 - 11 - 23,
+      todayDate: "23-16-11",
       startTime: 0 - 0 - 0,
       endTime: 2 - 0 - 0,
     },
   ]);
+
+  console.log("feed created");
+  mongoose.disconnect();
 }
+seed();
