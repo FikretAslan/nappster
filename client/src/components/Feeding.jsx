@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import NewFeed from "./NewFeed";
+import "./Feeding.css";
 
 export default function Feeding({ feeds, setFeeds, getFeed }) {
   async function handleDeleteButton(id) {
@@ -9,6 +10,9 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
       const API = `http://localhost:8080/feeding/${id}`;
       await axios.delete(API);
       // getFeed();
+      useEffect(() => {
+        getFeed();
+      }, []);
     }
   }
 
@@ -24,7 +28,7 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
                 handleDeleteButton(feeds._id);
               }}
             >
-              X
+              Delete Feed
             </button>
           </div>
         );
