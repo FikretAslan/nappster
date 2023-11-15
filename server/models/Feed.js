@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const feedSchema = new Schema({
   name: String,
+  todayDate: Number,
   startTime: Number,
   endTime: Number,
 });
