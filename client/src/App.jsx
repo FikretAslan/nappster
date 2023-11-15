@@ -8,6 +8,7 @@ import NewFeed from "./components/NewFeed";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./components/Home.css";
 
 function App() {
   const [feeds, setFeeds] = useState([]);
@@ -24,10 +25,16 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <img src="https://placehold.co/200x100" alt="Logo" />
+        <img
+          className="mainlogo"
+          src="https://em-content.zobj.net/source/samsung/380/baby-symbol_1f6bc.png"
+          alt="Logo"
+        />
 
         <h1>
-          <Link to="/">Nappster</Link>
+          <Link className="header" to="/">
+            Nappster
+          </Link>
         </h1>
         <nav>
           <ul>

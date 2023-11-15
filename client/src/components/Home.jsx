@@ -14,7 +14,10 @@ export default function Home() {
         <Link to="/feeding">
           <h3>Feeding</h3>
         </Link>
-        <img src="https://placehold.co/100x100" alt="bottlepic" />
+        <img
+          src="https://em-content.zobj.net/source/samsung/380/baby-bottle_1f37c.png"
+          alt="bottlepic"
+        />
       </div>
 
       <div className="column2">
@@ -22,14 +25,20 @@ export default function Home() {
         <Link to="/nappies">
           <h3>Nappies</h3>
         </Link>
-        <img src="https://placehold.co/100x100" alt="nappy" />
+        <img
+          src="https://em-content.zobj.net/source/samsung/220/briefs_1fa72.png"
+          alt="nappy"
+        />
       </div>
 
       <div className="column3">
         <Link to="/sleep">
           <h3>Sleep</h3>
         </Link>
-        <img src="https://placehold.co/100x100" alt="sleepimg" />
+        <img
+          src="https://em-content.zobj.net/source/samsung/128/sleeping-face_1f634.png"
+          alt="sleepimg"
+        />
       </div>
 
       <div className="quotes">
