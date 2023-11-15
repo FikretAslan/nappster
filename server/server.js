@@ -22,4 +22,14 @@ app.post("/feeding", async (req, res) => {
   res.json(newFeed);
 });
 
+app.delete("/feeding/:id", async (req, res) => {
+  const deleteFeed = await Feeds.findByIdAndDelete(req.params._id);
+  res.json(deleteFeed);
+});
+
+app.put("/feeding/:id", async (req, res) => {
+  const updatedFeed = await Feeds.findByIdAndUpdate(req.params.id, req.body);
+  res.json(updatedFeed);
+});
+
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));

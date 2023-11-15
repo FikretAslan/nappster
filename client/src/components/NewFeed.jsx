@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import EditFeed from "./EditFeed";
 
 export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
   const [formData, setFormData] = useState(
@@ -10,12 +11,12 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     }
   );
 
-  async function addFeed(e) {
-    e.preventDefault();
-    const API = "http://localhost:8080/feeding";
-    const res = await axios.post(API, formData);
-    setFeeds([...feeds, res.data]);
-  }
+  // async function addFeed(e) {
+  //   e.preventDefault();
+  //   const API = "http://localhost:8080/feeding";
+  //   const res = await axios.post(API, formData);
+  //   setFeeds([...feeds, res.data]);
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -35,6 +36,16 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
 
     setFormData(newForm);
   }
+
+  // async function handleDeleteButton(_id) {
+  //   const check = confirm("Are you sure you wish to proceed?");
+  //   if (check) {
+  //     const API = `http://localhost:8080/feeding/${id}`;
+  //     const axios = await axios.delete(API);
+  //     getFeed();
+  //   }
+  // }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -77,6 +88,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
           onChange={handleChange}
         />
         <input type="submit" value="New feed" />
+        <EditFeed />
       </form>
     </>
   );
