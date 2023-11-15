@@ -15,7 +15,6 @@ app.get("/feeding", async (req, res) => {
   const feeds = await Feeds.find(req.query);
 
   res.json(feeds);
-  console.log(feeds);
 });
 
 app.post("/feeding", async (req, res) => {

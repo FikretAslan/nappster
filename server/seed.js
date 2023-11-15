@@ -20,4 +20,8 @@ async function seed() {
       endTime: 2 - 0 - 0,
     },
   ]);
+
+  console.log("feed created");
+  mongoose.disconnect();
 }
+seed();

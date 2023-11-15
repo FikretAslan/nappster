@@ -5,13 +5,17 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
   const [formData, setFormData] = useState(
     feed ?? {
       name: "",
-      todayDate: {},
-      startTime: {},
-      endTime: {},
+      startTime: "",
+      endTime: "",
     }
   );
 
-  const [data, setData] = useState({});
+  async function addFeed(e) {
+    e.preventDefault();
+    const API = "http://localhost:8080/feeding";
+    const res = await axios.post(API, formData);
+    setFeeds([...feeds, res.data]);
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -61,20 +65,14 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
         </label>
         {/* conditional render feed1 && <input left or right>*/}
         <input
-          name="todayDate"
-          type="date"
-          placeholder="Day of feed"
-          onChange={handleChange}
-        />
-        <input
           name="startTime"
-          type="time"
+          type="datetime-local"
           placeholder="Start of feed"
           onChange={handleChange}
         />
         <input
           name="endTime"
-          type="time"
+          type="datetime-local"
           placeholder="End of feed"
           onChange={handleChange}
         />
