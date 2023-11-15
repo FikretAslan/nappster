@@ -1,11 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-export default function EditFeed({
-  _id,
-  startTime,
-  endTime,
-  handleDeleteButton,
-}) {
+export default function EditFeed({ _id, startTime, endTime }) {
   const [isEditable, setIsEditable] = useState(false);
 
   function handleEdit() {
@@ -15,15 +11,6 @@ export default function EditFeed({
     console.log(e.currentTarget.textContext);
   }
 
-  async function handleDeleteButton(_id) {
-    const check = confirm("Are you sure you wish to proceed?");
-    if (check) {
-      const API = `http://localhost:8080/feeding/${id}`;
-      const axios = await axios.delete(API);
-      getFeed();
-    }
-  }
-
   return (
     <div key={_id}>
       <h3
@@ -31,18 +18,11 @@ export default function EditFeed({
         onInput={(e) => {
           handleChange(e);
         }}
-      >
-        {startTime}
-      </h3>
+      ></h3>
       <h3 contentEditable={isEditable}>{startTime}</h3>
       <h3 contentEditable={isEditable}>{endTime}</h3>
       <div>
         <button onClick={handleEdit}>Edit Feed</button>
-        <button
-          onClick={() => {
-            handleDeleteButton(_id);
-          }}
-        ></button>
       </div>
     </div>
   );

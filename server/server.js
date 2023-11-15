@@ -23,8 +23,14 @@ app.post("/feeding", async (req, res) => {
 });
 
 app.delete("/feeding/:id", async (req, res) => {
-  const deleteFeed = await Feeds.findByIdAndDelete(req.params._id);
-  res.json(deleteFeed);
+  console.log("something");
+  try {
+    console.log(req.params);
+    const deleteFeed = await Feeds.findByIdAndDelete(req.params.id);
+    res.json(deleteFeed);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.put("/feeding/:id", async (req, res) => {

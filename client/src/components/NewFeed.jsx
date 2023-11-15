@@ -37,14 +37,9 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     setFormData(newForm);
   }
 
-  // async function handleDeleteButton(_id) {
-  //   const check = confirm("Are you sure you wish to proceed?");
-  //   if (check) {
-  //     const API = `http://localhost:8080/feeding/${id}`;
-  //     const axios = await axios.delete(API);
-  //     getFeed();
-  //   }
-  // }
+  function handleEdit() {
+    setIsEditable(!isEditable);
+  }
 
   return (
     <>
