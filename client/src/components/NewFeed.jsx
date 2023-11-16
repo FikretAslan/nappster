@@ -13,7 +13,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
 
   async function addFeed(e) {
     e.preventDefault();
-    const API = "http://localhost:8080/feeding";
+    const API = "https://nappster.onrender.com/feeding";
     const res = await axios.post(API, formData);
     setFeeds([...feeds, res.data]);
   }
@@ -21,7 +21,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const API = "http://localhost:8080/feeding";
+    const API = "https://nappster.onrender.com/feeding";
     const res = await axios.post(API, formData);
     console.log(feeds);
     setFeeds([...feeds, res.data]);
@@ -39,7 +39,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
 
   async function updateFeed(event) {
     event.preventDefault();
-    const API = `http://localhost:8080/feeding/${feeds._id}`;
+    const API = `https://nappster.onrender.com/feeding/${feeds._id}`;
     await axios.put(API, formData);
     setFeed(formData);
   }

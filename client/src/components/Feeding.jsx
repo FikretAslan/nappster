@@ -7,7 +7,7 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
   async function handleDeleteButton(id) {
     const check = confirm("Are you sure you wish to proceed?");
     if (check) {
-      const API = `http://localhost:8080/feeding/${id}`;
+      const API = `https://nappster.onrender.com/feeding/${id}`;
       await axios.delete(API);
       // getFeed();
       useEffect(() => {

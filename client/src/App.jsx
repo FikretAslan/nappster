@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   async function getFeed() {
-    const API = "http://localhost:8080/feeding";
+    const API = "https://nappster.onrender.com/feeding";
     const axiosRes = await axios.get(API);
     setFeeds(axiosRes.data);
   }
