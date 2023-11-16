@@ -11,12 +11,12 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     }
   );
 
-  // async function addFeed(e) {
-  //   e.preventDefault();
-  //   const API = "http://localhost:8080/feeding";
-  //   const res = await axios.post(API, formData);
-  //   setFeeds([...feeds, res.data]);
-  // }
+  async function addFeed(e) {
+    e.preventDefault();
+    const API = "http://localhost:8080/feeding";
+    const res = await axios.post(API, formData);
+    setFeeds([...feeds, res.data]);
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -37,13 +37,16 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     setFormData(newForm);
   }
 
-  function handleEdit() {
-    setIsEditable(!isEditable);
+  async function updateFeed(event) {
+    event.preventDefault();
+    const API = `http://localhost:8080/feeding/${feeds._id}`;
+    await axios.put(API, formData);
+    setFeed(formData);
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={feed?.name ? updateFeed : addFeed}>
         <label htmlFor="feed1">
           Breastfed
           <input type="checkbox" onChange={handleChange} name="status" />
