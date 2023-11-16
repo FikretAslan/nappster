@@ -57,3 +57,13 @@ body {
   border: 2px solid #90f6d7;
   border-radius: 10px;
 }
+
+.loginB {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutB {
+  display: flex;
+  flex-direction: column;
+}

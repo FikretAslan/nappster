@@ -12,7 +12,9 @@ export default function Home() {
   return (
     <>
       <Profile />
+      <div className="LoginB" />
       <LoginButton />
+      <div className="LogoutB" />
       <LogoutButton />
       <div className="FeedNapSleep" />
 
