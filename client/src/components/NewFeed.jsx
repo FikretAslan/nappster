@@ -12,6 +12,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     }
   );
 
+
   function handleChange(e) {
     const { name, type } = e.target;
     let newForm = {
@@ -24,32 +25,56 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     setFormData(newForm);
   }
 
-  // async function addFeed(e) {
-  //   e.preventDefault();
-  //   const API = "http://localhost:8080/feeding";
-  //   const res = await axios.post(API, formData);
-  //   setFeeds([...feeds, res.data]);
-  // }
+  async function addFeed(e) {
+    e.preventDefault();
+    const API = "http://localhost:8080/feeding";
+    const res = await axios.post(API, formData);
+    setFeeds([...feeds, res.data]);
+  }
+
+  async function addFeed(e) {
+    e.preventDefault();
+    const API = "https://nappster.onrender.com/feeding";
+    const res = await axios.post(API, formData);
+    setFeeds([...feeds, res.data]);
+  }
+
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const API = "http://localhost:8080/feeding";
+    const API = "https://nappster.onrender.com/feeding";
     const res = await axios.post(API, formData);
     console.log(feeds);
     setFeeds([...feeds, res.data]);
   }
 
+
   async function updateFeed(e) {
     e.preventDefault();
     const API = `http://localhost:8080/feeding/${feed._id}`;
+
+  function handleChange(e) {
+    const { name, type } = e.target;
+    let newForm = {
+      ...formData,
+      [name]: e.target[type === "checkbox" ? "checked" : "value"],
+    };
+
+    setFormData(newForm);
+  }
+
+  async function updateFeed(event) {
+    event.preventDefault();
+    const API = `https://nappster.onrender.com/feeding/${feeds._id}`;
+
     await axios.put(API, formData);
     setFeed(formData);
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={feed?.name ? updateFeed : addFeed}>
         <label htmlFor="feed1">
           Breastfed
           <input type="checkbox" onChange={handleChange} name="status" />
