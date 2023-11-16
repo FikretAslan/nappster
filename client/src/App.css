@@ -5,9 +5,8 @@
   font-family: "Macondo", cursive;
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
+a.header {
+  font-size: 80px;
 }
 
 .FeedNapSleep {
@@ -22,6 +21,8 @@ h1 {
 .column1,
 .column2,
 .column3 {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   margin: 30px;
   background-color: bisque;
