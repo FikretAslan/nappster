@@ -3,10 +3,17 @@ import Feeding from "../components/Feeding";
 import Nappies from "../components/Nappies";
 import Sleep from "../components/Sleep";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./Login";
+import LogoutButton from "./Logout";
+import Profile from "./Profile";
 
 export default function Home() {
   return (
     <>
+      <Profile />
+      <LoginButton />
+      <LogoutButton />
       <div className="FeedNapSleep" />
 
       <div className="column1">

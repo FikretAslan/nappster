@@ -30,7 +30,6 @@ function App() {
           src="https://em-content.zobj.net/source/samsung/380/baby-symbol_1f6bc.png"
           alt="Logo"
         />
-
         <h1>
           <Link className="header" to="/">
             Nappster
