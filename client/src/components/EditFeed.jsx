@@ -8,7 +8,7 @@ export default function EditFeed({ _id, startTime, endTime }) {
     setIsEditable(!isEditable);
   }
   function handleChange(e) {
-    console.log(e.currentTarget.textContext);
+    setFormData({ ...FormData, [e.target.name]: e.target.value });
   }
 
   return (
