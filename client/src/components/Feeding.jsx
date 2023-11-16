@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NewFeed from "./NewFeed";
 import "./Feeding.css";
@@ -9,12 +9,13 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
     if (check) {
       const API = `https://nappster.onrender.com/feeding/${id}`;
       await axios.delete(API);
-      // getFeed();
+
       useEffect(() => {
         getFeed();
       }, []);
     }
   }
+  const [feedToEdit, setFeedToEdit] = useState({});
 
   return (
     <div>
@@ -29,6 +30,13 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
               }}
             >
               Delete Feed
+            </button>
+            <button
+              onClick={() => {
+                handleEditButton(feeds._id);
+              }}
+            >
+              Edit Feed
             </button>
           </div>
         );

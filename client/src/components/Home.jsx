@@ -49,14 +49,11 @@ export default function Home() {
       </div>
 
       <div className="quotes">
-        <h3>You are doing an AMAZING job</h3>
+        <h3>You are doing an AMAZING job!</h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
-          maiores! Laudantium explicabo assumenda rem fugit hic ducimus commodi
-          quod. Suscipit, ipsum magni? Ut ipsam itaque earum atque! Vitae, illo
-          voluptate? Aspernatur eveniet amet esse consequatur illo dolores velit
-          nesciunt odit perspiciatis reiciendis, incidunt porro delectus maxime
-          vitae quia laudantium, voluptatem quas accusantium? Aspernatur, magni.
+          As new parents, we often strive for perfection. But the truth is,
+          there are no perfect parents, so just be the very best parents you can
+          be.
         </p>
       </div>
     </>

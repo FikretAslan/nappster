@@ -8,8 +8,29 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
       name: "",
       startTime: "",
       endTime: "",
+      status: false,
     }
   );
+
+
+  function handleChange(e) {
+    const { name, type } = e.target;
+    let newForm = {
+      ...formData,
+      [name]: e.target[type === "checkbox" ? "checked" : "value"],
+    };
+
+    setFormData({ ...FormData, [e.target.name]: e.target.value });
+
+    setFormData(newForm);
+  }
+
+  async function addFeed(e) {
+    e.preventDefault();
+    const API = "http://localhost:8080/feeding";
+    const res = await axios.post(API, formData);
+    setFeeds([...feeds, res.data]);
+  }
 
   async function addFeed(e) {
     e.preventDefault();
@@ -17,6 +38,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     const res = await axios.post(API, formData);
     setFeeds([...feeds, res.data]);
   }
+
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -26,6 +48,11 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
     console.log(feeds);
     setFeeds([...feeds, res.data]);
   }
+
+
+  async function updateFeed(e) {
+    e.preventDefault();
+    const API = `http://localhost:8080/feeding/${feed._id}`;
 
   function handleChange(e) {
     const { name, type } = e.target;
@@ -40,6 +67,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
   async function updateFeed(event) {
     event.preventDefault();
     const API = `https://nappster.onrender.com/feeding/${feeds._id}`;
+
     await axios.put(API, formData);
     setFeed(formData);
   }
@@ -72,7 +100,7 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
             id="feed2"
           />
         </label>
-        {/* conditional render feed1 && <input left or right>*/}
+
         <input
           name="startTime"
           type="datetime-local"
@@ -85,8 +113,10 @@ export default function NewFeed({ feeds, setFeeds, feed, setFeed }) {
           placeholder="End of feed"
           onChange={handleChange}
         />
+
         <input type="submit" value="New feed" />
         <EditFeed />
+        {/* <button>{feed?.name ? "Update Feed Info" : "Edit feed"}</button> */}
       </form>
     </>
   );

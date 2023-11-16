@@ -26,7 +26,7 @@ app.delete("/feeding/:id", async (req, res) => {
   console.log("something");
   try {
     console.log(req.params);
-    const deleteFeed = await Feeds.findByIdAndDelete(req.params.id);
+    const deleteFeed = await Feeds.findByIdAndDelete(req.params.id, req.body);
     res.json(deleteFeed);
   } catch (error) {
     console.log(error);
