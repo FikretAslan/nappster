@@ -41,7 +41,7 @@ export default function Feeding({ feeds, setFeeds, getFeed }) {
           </div>
         );
       })}
-      <NewFeed feeds={feeds} setFeeds={setFeeds}></NewFeed>
+      <NewFeed feeds={feeds} setFeeds={setFeeds} />
     </div>
   );
 }
